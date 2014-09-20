@@ -50,3 +50,4 @@ _시간과 장소는 팀 구성원의 의견 및 팀 사정으로 조정 될 수
 - STS - http://spring.io/tools/sts
 - Git(Github)
 - Spring Framework 3.2.7
+- Xmind - http://www.xmind.net
