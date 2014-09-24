@@ -1,4 +1,4 @@
-package net.javacafe.owl.post;
+package net.javacafe.owl.core.domain;
 
 public class Post {
 	private final String content;

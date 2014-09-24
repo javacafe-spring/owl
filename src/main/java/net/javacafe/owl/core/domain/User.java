@@ -1,4 +1,4 @@
-package net.javacafe.owl.user;
+package net.javacafe.owl.core.domain;
 
 public class User {
 	private final String username;
@@ -32,11 +32,7 @@ public class User {
 		return email;
 	}
 
-	/**
-	 * @return the hashedPassword
-	 */
-	public final boolean equalsHashedPassword(final String hashedPassword) {
+	public boolean isMatchedPassword(final String hashedPassword) {
 		return this.hashedPassword.equalsIgnoreCase(hashedPassword);
 	}
-
 }

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package net.javacafe.owl.relationship;
+package net.javacafe.owl.core.domain;
 
 /**
  * @author pLacebo
