@@ -8,7 +8,7 @@ import net.javacafe.owl.core.repository.UserDao;
 public class LoginEventHanlder implements LoginService {
 	UserDao userDao;
 
-	public void setUserDao(final UserDao o) {
+	public LoginEventHanlder(final UserDao o) {
 		this.userDao = o;
 	}
 

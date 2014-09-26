@@ -13,4 +13,12 @@ public class LoginUser {
 	public LoginUser(final User u) {
 		this.user = u;
 	}
+
+	public String getUsername() {
+		return this.user.getUsername();
+	}
+
+	public String getEmail() {
+		return this.user.getEmail();
+	}
 }
