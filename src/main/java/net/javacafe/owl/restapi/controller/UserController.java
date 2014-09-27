@@ -1,6 +1,6 @@
 package net.javacafe.owl.restapi.controller;
 
-import java.util.Locale;
+import javax.servlet.http.HttpServletRequest;
 
 import net.javacafe.owl.core.domain.LoginUser;
 import net.javacafe.owl.core.events.SignInEvent;
@@ -26,10 +26,10 @@ public class UserController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login(Locale locale, Model model) {
-		logger.info("access loing api ", locale);
-
-		LoginUser u = loginService.signIn(new SignInEvent("placebo2me@gmail.com", "1234"));
+	public String login(HttpServletRequest request, Model model) {
+		logger.info("login {}", request.getParameter("emailOrUsername"));
+		LoginUser u = loginService.signIn(new SignInEvent(request.getParameter("emailOrUsername"), request
+				.getParameter("hashedPassword")));
 
 		model.addAttribute("email", u.getEmail());
 		model.addAttribute("userName", u.getUsername());

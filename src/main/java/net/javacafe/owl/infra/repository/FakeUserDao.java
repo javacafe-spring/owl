@@ -6,17 +6,17 @@ import net.javacafe.owl.core.repository.UserDao;
 public class FakeUserDao implements UserDao {
 
 	@Override
-	public User findByEmailOrUsername(String emailOrUsername) {
+	public User findByEmailOrUsername(final String emailOrUsername) {
 		return new User("Tyler", "placebo2me@gmail.com", "1234");
 	}
 
 	@Override
-	public int insert(User u) {
+	public int insert(final User u) {
 		return 1;
 	}
 
 	@Override
-	public int updateUsernameByEmail(String username, String email) {
+	public int updateUsernameByEmail(final String username, String email) {
 		return 1;
 	}
 

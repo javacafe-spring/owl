@@ -27,7 +27,7 @@ public class UserEventHanlder implements UserService {
 	}
 
 	@Override
-	public User signUp(SignUpEvent e) {
+	public User signUp(final SignUpEvent e) {
 		User u = new User(e.getEmail(), e.getUsername(), e.getHashedPassword());
 		if (userDao.insert(u) > 0) {
 			return u;
@@ -36,7 +36,7 @@ public class UserEventHanlder implements UserService {
 	}
 
 	@Override
-	public User modifyUsername(ModifyUsernameEvent e) {
+	public User modifyUsername(final ModifyUsernameEvent e) {
 		if (userDao.updateUsernameByEmail(e.getUsername(), e.getEmail()) > 0) {
 			return userDao.findByEmailOrUsername(e.getEmail());
 		}
