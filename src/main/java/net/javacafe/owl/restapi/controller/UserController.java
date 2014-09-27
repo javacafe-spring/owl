@@ -16,19 +16,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class UserController {
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
-	private final UserService loginService;
+	private final UserService userService;
 
 	public UserController(final UserService l) {
-		this.loginService = l;
+		this.userService = l;
 	}
 
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login(HttpServletRequest request, Model model) {
-		logger.info("login {}", request.getParameter("emailOrUsername"));
-		LoginUser u = loginService.signIn(new SignInEvent(request.getParameter("emailOrUsername"), request
+	@RequestMapping(value = "/signIn", method = RequestMethod.GET)
+	public String signIn(HttpServletRequest request, Model model) {
+		logger.info("signIn {}", request.getParameter("emailOrUsername"));
+		LoginUser u = userService.signIn(new SignInEvent(request.getParameter("emailOrUsername"), request
 				.getParameter("hashedPassword")));
 
 		model.addAttribute("email", u.getEmail());
