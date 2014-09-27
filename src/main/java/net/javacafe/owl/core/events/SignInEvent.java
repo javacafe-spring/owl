@@ -1,6 +1,6 @@
 package net.javacafe.owl.core.events;
 
-public class LoginEvent {
+public class SignInEvent {
 	private final String emailOrUsername;
 	private final String hashedPassword;
 
@@ -8,7 +8,7 @@ public class LoginEvent {
 	 * @param emailOrUsername
 	 * @param hashedPassword
 	 */
-	public LoginEvent(String emailOrUsername, String hashedPassword) {
+	public SignInEvent(String emailOrUsername, String hashedPassword) {
 		super();
 		this.emailOrUsername = emailOrUsername;
 		this.hashedPassword = hashedPassword;

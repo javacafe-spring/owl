@@ -1,6 +1,6 @@
 package net.javacafe.owl.config;
 
-import net.javacafe.owl.core.services.LoginService;
+import net.javacafe.owl.core.services.UserService;
 import net.javacafe.owl.restapi.controller.LoginController;
 
 import org.springframework.context.annotation.Bean;
@@ -27,7 +27,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	}
 
 	@Bean
-	LoginController loginController(LoginService l) {
+	LoginController loginController(UserService l) {
 		return new LoginController(l);
 	}
 }

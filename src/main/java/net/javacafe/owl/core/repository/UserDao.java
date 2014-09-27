@@ -4,4 +4,6 @@ import net.javacafe.owl.core.domain.User;
 
 public interface UserDao {
 	public User findByEmailOrUsername(final String emailOrUsername);
+
+	public int save(final User u);
 }

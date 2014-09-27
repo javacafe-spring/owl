@@ -10,4 +10,9 @@ public class FakeUserDao implements UserDao {
 		return new User("Tyler", "placebo2me@gmail.com", "1234");
 	}
 
+	@Override
+	public int save(User u) {
+		return 1;
+	}
+
 }

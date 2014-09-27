@@ -3,8 +3,8 @@ package net.javacafe.owl.restapi.controller;
 import java.util.Locale;
 
 import net.javacafe.owl.core.domain.LoginUser;
-import net.javacafe.owl.core.events.LoginEvent;
-import net.javacafe.owl.core.services.LoginService;
+import net.javacafe.owl.core.events.SignInEvent;
+import net.javacafe.owl.core.services.UserService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class LoginController {
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
-	private final LoginService loginService;
+	private final UserService loginService;
 
-	public LoginController(final LoginService l) {
+	public LoginController(final UserService l) {
 		this.loginService = l;
 	}
 
@@ -29,7 +29,7 @@ public class LoginController {
 	public String login(Locale locale, Model model) {
 		logger.info("access loing api ", locale);
 
-		LoginUser u = loginService.login(new LoginEvent("placebo2me@gmail.com", "1234"));
+		LoginUser u = loginService.signIn(new SignInEvent("placebo2me@gmail.com", "1234"));
 
 		model.addAttribute("email", u.getEmail());
 		model.addAttribute("userName", u.getUsername());
