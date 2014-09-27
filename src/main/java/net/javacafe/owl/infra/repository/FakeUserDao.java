@@ -11,7 +11,12 @@ public class FakeUserDao implements UserDao {
 	}
 
 	@Override
-	public int save(User u) {
+	public int insert(User u) {
+		return 1;
+	}
+
+	@Override
+	public int updateUsernameByEmail(String username, String email) {
 		return 1;
 	}
 

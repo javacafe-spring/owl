@@ -2,6 +2,7 @@ package net.javacafe.owl.core.services;
 
 import net.javacafe.owl.core.domain.LoginUser;
 import net.javacafe.owl.core.domain.User;
+import net.javacafe.owl.core.events.ModifyUsernameEvent;
 import net.javacafe.owl.core.events.SignInEvent;
 import net.javacafe.owl.core.events.SignUpEvent;
 import net.javacafe.owl.core.repository.UserDao;
@@ -28,8 +29,16 @@ public class UserEventHanlder implements UserService {
 	@Override
 	public User signUp(SignUpEvent e) {
 		User u = new User(e.getEmail(), e.getUsername(), e.getHashedPassword());
-		if (userDao.save(u) > 0) {
+		if (userDao.insert(u) > 0) {
 			return u;
+		}
+		return null;
+	}
+
+	@Override
+	public User modifyUsername(ModifyUsernameEvent e) {
+		if (userDao.updateUsernameByEmail(e.getUsername(), e.getEmail()) > 0) {
+			return userDao.findByEmailOrUsername(e.getEmail());
 		}
 		return null;
 	}
