@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class LoginController {
-	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+public class UserController {
+	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	private final UserService loginService;
 
-	public LoginController(final UserService l) {
+	public UserController(final UserService l) {
 		this.loginService = l;
 	}
 
