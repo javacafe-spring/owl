@@ -6,10 +6,10 @@
 </head>
 <body>
 <h1>
-	Login Page.  
+	${state} Page.  
 </h1>
 
-<P>  Login email is ${email}. </P>
-<P>  Login username is ${userName}. </P>
+<P>  ${state} email is ${email}. </P>
+<P>  ${state} username is ${username}. </P>
 </body>
 </html>

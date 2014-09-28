@@ -37,7 +37,7 @@ public class UserEventHanlder implements UserService {
 
 	@Override
 	public User modifyUsername(final ModifyUsernameEvent e) {
-		if (userDao.updateUsernameByEmail(e.getUsername(), e.getEmail()) > 0) {
+		if (userDao.updateUsernameByEmail(e.getUpdatableUsername(), e.getEmail()) > 0) {
 			return userDao.findByEmailOrUsername(e.getEmail());
 		}
 		return null;
