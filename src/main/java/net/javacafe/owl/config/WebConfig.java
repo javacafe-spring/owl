@@ -25,7 +25,10 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer c) {
 		c.enable();
 	}
-
+ 
+	
+	
+	
 	@Bean
 	UserController userController(UserService l) {
 		return new UserController(l);
