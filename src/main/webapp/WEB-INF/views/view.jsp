@@ -11,5 +11,7 @@
 
 <P>  ${state} email is ${email}. </P>
 <P>  ${state} username is ${username}. </P>
+<P>  ${state} content is ${content}. </P>
+<P>  ${classId} classId is ${classId}. </P>
 </body>
 </html>

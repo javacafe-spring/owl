@@ -35,6 +35,7 @@ public class UserController {
 
 		model.addAttribute("email", u.getEmail());
 		model.addAttribute("username", u.getUsername());
+		model.addAttribute("classId", userService.toString());
 
 		return "view";
 	}
