@@ -27,8 +27,6 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	}
  
 	
-	
-	
 	@Bean
 	UserController userController(UserService l) {
 		return new UserController(l);

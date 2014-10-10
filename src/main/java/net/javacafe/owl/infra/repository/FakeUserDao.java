@@ -7,7 +7,7 @@ public class FakeUserDao implements UserDao {
 
 	@Override
 	public User findByEmailOrUsername(final String emailOrUsername) {
-		return new User("Tyler", "placebo2me@gmail.com", "1234");
+		return new User("DEX", "tech@skyaperture.com", "1234");
 	}
 
 	@Override
