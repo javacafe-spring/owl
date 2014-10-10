@@ -7,10 +7,10 @@ import net.javacafe.owl.core.events.SignInEvent;
 import net.javacafe.owl.core.events.SignUpEvent;
 import net.javacafe.owl.core.repository.UserDao;
 
-public class UserEventHanlder implements UserService {
+public class UserEventHandler implements UserService {
 	UserDao userDao;
 
-	public UserEventHanlder(final UserDao o) {
+	public UserEventHandler(final UserDao o) {
 		this.userDao = o;
 	}
 
