@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="net.javacafe.owl.core.domain.User" table="user">
+		<id name="email" type="java.lang.String">
+			<column name="email" />
+		</id>
+		<property name="username" type="java.lang.String">
+			<column name="NAME" />
+		</property>
+		<property name="hashedPassword" type="java.lang.String">
+			<column name="hashed_password" />
+		</property>
+	</class>
+</hibernate-mapping>

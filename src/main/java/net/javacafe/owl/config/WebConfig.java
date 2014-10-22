@@ -1,6 +1,5 @@
 package net.javacafe.owl.config;
 
-import net.javacafe.owl.core.services.LoginUserService;
 import net.javacafe.owl.core.services.UserService;
 import net.javacafe.owl.restapi.controller.LoginUserController;
 import net.javacafe.owl.restapi.controller.UserController;
