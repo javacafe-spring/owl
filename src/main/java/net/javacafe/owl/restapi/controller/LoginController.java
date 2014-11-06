@@ -27,9 +27,9 @@ public class LoginController {
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(Locale locale, Model model) {
-		logger.info("access loing api ", locale);
+		logger.info("access login api ", locale);
 
-		LoginUser u = loginService.login(new LoginEvent("placebo2me@gmail.com", "1234"));
+		LoginUser u = loginService.login(new LoginEvent("tech@skyaperture.com", "1234"));
 
 		model.addAttribute("email", u.getEmail());
 		model.addAttribute("userName", u.getUsername());

@@ -3,8 +3,8 @@ package net.javacafe.owl.core.domain;
 /**
  * 로그인 한 사용자에 대한 정보를 구성하는 클래스.
  * 
- * @since 2014.09.23
- * @author 임형태
+ * @since 2014.11.06
+ * @author 곽대기
  * @see User
  */
 public class LoginUser {
