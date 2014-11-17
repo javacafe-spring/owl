@@ -16,9 +16,9 @@ public class UserEventHandler implements UserService {
 
 	@Override
 	public LoginUser signIn(final SignInEvent e) {
-		User u = userDao.findByEmailOrUsername(e.getEmailOrUsername());
+		User u = userDao.findByEmail(e.getEmail());
 		if (u == null) {
-			throw new IllegalArgumentException("not exist user by email or username : ".concat(e.getEmailOrUsername()));
+			throw new IllegalArgumentException("not exist user by email or username : ".concat(e.getEmail()));
 		}
 		if (!u.isMatchedPassword(e.getHashedPassword())) {
 			throw new IllegalArgumentException("not match password. check yours password.");
@@ -27,19 +27,13 @@ public class UserEventHandler implements UserService {
 	}
 
 	@Override
-	public User signUp(final SignUpEvent e) {
+	public String signUp(final SignUpEvent e) {
 		User u = new User(e.getEmail(), e.getUsername(), e.getHashedPassword());
-		if (userDao.insert(u) > 0) {
-			return u;
-		}
-		return null;
+		return userDao.save(u);
 	}
 
 	@Override
-	public User modifyUsername(final ModifyUsernameEvent e) {
-		if (userDao.updateUsernameByEmail(e.getUpdatableUsername(), e.getEmail()) > 0) {
-			return userDao.findByEmailOrUsername(e.getEmail());
-		}
-		return null;
+	public void modifyUsername(final ModifyUsernameEvent e) {
+		userDao.updateUsernameByEmail(e.getUpdatableUsername(), e.getEmail());
 	}
 }

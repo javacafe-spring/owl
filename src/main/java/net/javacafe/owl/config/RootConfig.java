@@ -18,17 +18,13 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@EnableTransactionManagement
-@ComponentScan({ "net.javacafe.owl.infra.repository" })
 public class RootConfig {
 
 	@Bean
@@ -56,7 +52,7 @@ public class RootConfig {
 	public LocalSessionFactoryBean sessionFactory() {
 		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
 		sessionFactory.setDataSource(dataSource());
-		sessionFactory.setPackagesToScan(new String[] { "net.javacafe.owl.core.domain" });
+		sessionFactory.setMappingResources(new String[] { "persistance/user.hbm.xml" });
 		sessionFactory.setHibernateProperties(hibernateProperties());
 		return sessionFactory;
 	}
@@ -89,7 +85,7 @@ public class RootConfig {
 		return new Properties() {
 			private static final long serialVersionUID = -129819734682723912L;
 			{
-				setProperty("hibernate.hbm2ddl.auto", "create-drop");
+				// setProperty("hibernate.hbm2ddl.auto", "create-drop");
 				setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
 				setProperty("hibernate.globally_quoted_identifiers", "true");
 			}

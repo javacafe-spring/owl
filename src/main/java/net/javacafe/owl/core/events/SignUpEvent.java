@@ -1,21 +1,9 @@
 package net.javacafe.owl.core.events;
 
 public class SignUpEvent {
-	private final String username;
-	private final String email;
-	private final String hashedPassword;
-
-	/**
-	 * @param username
-	 * @param email
-	 * @param hashedPassword
-	 */
-	public SignUpEvent(String username, String email, String hashedPassword) {
-		super();
-		this.username = username;
-		this.email = email;
-		this.hashedPassword = hashedPassword;
-	}
+	private String username;
+	private String email;
+	private String hashedPassword;
 
 	/**
 	 * @return the username
@@ -36,6 +24,30 @@ public class SignUpEvent {
 	 */
 	public String getHashedPassword() {
 		return hashedPassword;
+	}
+
+	/**
+	 * @param username
+	 *            the username to set
+	 */
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	/**
+	 * @param email
+	 *            the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	/**
+	 * @param hashedPassword
+	 *            the hashedPassword to set
+	 */
+	public void setHashedPassword(String hashedPassword) {
+		this.hashedPassword = hashedPassword;
 	}
 
 }

@@ -1,24 +1,19 @@
 package net.javacafe.owl.core.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
 public class User {
-	@Column(length = 64)
-	private final String username;
-	@Id
-	private final String email;
-	@Column(length = 1024)
-	private final String hashedPassword;
+	private String email;
+	private String username;
+	private String hashedPassword;
+
+	public User() {
+	}
 
 	/**
 	 * @param username
 	 * @param email
 	 * @param password
 	 */
-	public User(final String username, final String email, final String hashedPassword) {
+	public User(final String email, final String username, final String hashedPassword) {
 		super();
 		this.username = username;
 		this.email = email;
@@ -28,18 +23,50 @@ public class User {
 	/**
 	 * @return the username
 	 */
-	public final String getUsername() {
+	public String getUsername() {
 		return username;
 	}
 
 	/**
 	 * @return the email
 	 */
-	public final String getEmail() {
+	public String getEmail() {
 		return email;
 	}
 
-	public boolean isMatchedPassword(final String hashedPassword) {
+	public final boolean isMatchedPassword(final String hashedPassword) {
 		return this.hashedPassword.equalsIgnoreCase(hashedPassword);
 	}
+
+	/**
+	 * @return the hashedPassword
+	 */
+	public String getHashedPassword() {
+		return hashedPassword;
+	}
+
+	/**
+	 * @param email
+	 *            the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	/**
+	 * @param username
+	 *            the username to set
+	 */
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	/**
+	 * @param hashedPassword
+	 *            the hashedPassword to set
+	 */
+	public void setHashedPassword(String hashedPassword) {
+		this.hashedPassword = hashedPassword;
+	}
+
 }
