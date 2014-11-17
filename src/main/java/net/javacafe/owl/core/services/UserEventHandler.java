@@ -27,9 +27,10 @@ public class UserEventHandler implements UserService {
 	}
 
 	@Override
-	public String signUp(final SignUpEvent e) {
+	public User signUp(final SignUpEvent e) {
 		User u = new User(e.getEmail(), e.getUsername(), e.getHashedPassword());
-		return userDao.save(u);
+		userDao.save(u);
+		return u;
 	}
 
 	@Override

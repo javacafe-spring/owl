@@ -1,6 +1,7 @@
 package net.javacafe.owl.restapi.controller;
 
 import net.javacafe.owl.core.domain.LoginUser;
+import net.javacafe.owl.core.domain.User;
 import net.javacafe.owl.core.events.ModifyUsernameEvent;
 import net.javacafe.owl.core.events.SignInEvent;
 import net.javacafe.owl.core.events.SignUpEvent;
@@ -13,7 +14,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class UserController {
@@ -32,9 +32,11 @@ public class UserController {
 		return "signIn";
 	}
 
-	@RequestMapping(value = "/signUp", method = RequestMethod.GET)
-	public @ResponseBody String signUp(@ModelAttribute SignUpEvent e) {
-		return userService.signUp(e);
+	@RequestMapping(value = "/signUp")
+	public String signUp(@ModelAttribute SignUpEvent e, Model m) {
+		User u = userService.signUp(e);
+		m.addAttribute(u);
+		return "signUp";
 	}
 
 	@RequestMapping(value = "/modifyUsername", method = RequestMethod.GET)

@@ -64,13 +64,14 @@ public class UserControllerTest {
 
 	@Test
 	public void testSignUp() throws Exception {
-		when(userService.signUp(org.mockito.Mockito.any(SignUpEvent.class))).thenReturn("placebo");
+		when(userService.signUp(org.mockito.Mockito.any(SignUpEvent.class))).thenReturn(
+				new User("placebo@gmail.com", "placebo", "1234"));
 
 		MvcResult r = this.mockMvc
 				.perform(
-						get("/signUp").param("email", "placebo@gmail.com").param("username", "placebo")
+						get("/signUp.json").param("email", "placebo@gmail.com").param("username", "placebo")
 								.param("hashedPassword", "1234")).andExpect(status().isOk()).andReturn();
-		assertThat(r.getResponse().getContentAsString(), is("placebo"));
+		assertThat(r.getModelAndView().getModel().get("user"), is(notNullValue()));
 
 	}
 
@@ -80,9 +81,9 @@ public class UserControllerTest {
 				new LoginUser(new User("placebo@gmail.com", "placebo", "1234")));
 
 		MvcResult r = this.mockMvc
-				.perform(get("/signIn").param("email", "placebo@gmail.com").param("hashedPassword", "1234"))
+				.perform(get("/signIn.json").param("email", "placebo@gmail.com").param("hashedPassword", "1234"))
 				.andExpect(status().isOk()).andReturn();
+		assertThat(r.getModelAndView().getModel().get("loginUser"), is(notNullValue()));
 
-		System.out.println(r.getResponse().getContentAsString());
 	}
 }
